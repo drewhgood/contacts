@@ -18,9 +18,10 @@ class ContactDatabase
     end
 
     def read_from_file
-      CSV.foreach('contacts.csv') do |row|
-        puts row.inspect
-      end
+      # CSV.foreach('contacts.csv') do |row|
+      #   puts row.inspect
+      customers = CSV.read('contacts.csv')
+      #end
     end
 
   end
@@ -28,5 +29,3 @@ class ContactDatabase
 
 end
 
-
-ContactDatabase.read_from_file

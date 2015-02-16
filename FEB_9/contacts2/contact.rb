@@ -34,10 +34,11 @@ class Contact
       # @@contacts.each do |contacts|
       #  p "#{contacts.name} (#{contacts.email})"
       # end
-   
-      ContactDatabase.read_from_file
-      
+        all_contacts = ContactDatabase.read_from_file
 
+        all_contacts.each do |contacts|
+          p " #{contacts[0]}: #{contacts[1]} (#{contacts[2]})"
+        end
     end
  
  
@@ -56,5 +57,4 @@ class Contact
   end
  
 end
-
 
