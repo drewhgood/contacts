@@ -23,8 +23,6 @@ class Contact
       # TODO: Will initialize a contact as well as add it to the list of contacts
       contact = Contact.new(name, email)
       @@contacts << contact
-      p contact
-      p @@contacts
       db = ContactDatabase.new
       ContactDatabase.write_to_file(contact)
       #p @@contacts.last.id
@@ -38,7 +36,7 @@ class Contact
     end
  
  
-    def find(index)
+    def show(index)
         all_contacts = ContactDatabase.read_from_file
         all_contacts.each do |contacts|
           if contacts[0] == index
@@ -51,9 +49,14 @@ class Contact
     #   # TODO: Return the list of contacts, as is
     # end
     
-    # def show(id)
-    #   # TODO: Show a contact, based on ID
-    # end
+    def find(search)
+       all_contacts = ContactDatabase.read_from_file
+        all_contacts.each do |contacts|
+          if contacts[1] =~ /#{search}/i or contacts[2] =~ /#{search}/i
+            p " #{contacts[0]}: #{contacts[1]} (#{contacts[2]})" 
+          end 
+        end
+    end
     
   end
  

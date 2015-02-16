@@ -1,5 +1,6 @@
 require_relative 'contact'
 require_relative 'contact_database'
+require 'pry'
 
 arg1, arg2 = ARGV
 
@@ -19,10 +20,10 @@ when "new"
   contact = Contact.create(name,email)
 when "list"
   Contact.list
-# when "show"
-#   Contact.show(arg2,filename)
 when "find"
   Contact.find(arg2)
+when "show"
+  Contact.show(arg2)
 else
   puts "nothing happened"
 end
