@@ -31,20 +31,21 @@ class Contact
     end
 
      def list
-      # @@contacts.each do |contacts|
-      #  p "#{contacts.name} (#{contacts.email})"
-      # end
         all_contacts = ContactDatabase.read_from_file
-
         all_contacts.each do |contacts|
-          p " #{contacts[0]}: #{contacts[1]} (#{contacts[2]})"
+          p " #{contacts[0]}: #{contacts[1]} (#{contacts[2]})"  
         end
     end
  
  
-    # def find(index)
-    #   # TODO: Will find and return contact by index
-    # end
+    def find(index)
+        all_contacts = ContactDatabase.read_from_file
+        all_contacts.each do |contacts|
+          if contacts[0] == index
+            p " #{contacts[0]}: #{contacts[1]} (#{contacts[2]})" 
+          end 
+        end
+    end
  
     # def all
     #   # TODO: Return the list of contacts, as is

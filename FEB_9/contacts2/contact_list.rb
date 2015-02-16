@@ -21,8 +21,8 @@ when "list"
   Contact.list
 # when "show"
 #   Contact.show(arg2,filename)
-# when "find"
-#   Contact.find(arg2,filename)
+when "find"
+  Contact.find(arg2)
 else
   puts "nothing happened"
 end
