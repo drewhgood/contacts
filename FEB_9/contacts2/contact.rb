@@ -57,6 +57,15 @@ class Contact
           end 
         end
     end
+
+    def check_for_duplicates(search)
+       all_contacts = ContactDatabase.read_from_file
+        all_contacts.each do |contacts|
+          if contacts[2] =~ /#{search}/i
+            true
+          end 
+        end
+    end
     
   end
  

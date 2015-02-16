@@ -12,12 +12,15 @@ when "help"
     show - Show a contact
     find - Find a contact\n"
 when "new"
-#when "new"
-  print "Enter name of contact: "
-  name = STDIN.gets.chomp
-  print "Enter email of contact: "
+  print "Enter Email: "
   email = STDIN.gets.chomp 
-  contact = Contact.create(name,email)
+  if Contact.check_for_duplicates(email)
+    p 'Contact already exists'
+  else
+    print "Enter Full Name: "
+    name = STDIN.gets.chomp
+    contact = Contact.create(name,email)
+  end
 when "list"
   Contact.list
 when "find"
